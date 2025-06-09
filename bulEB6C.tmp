@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbcy1er7etltf"]
-
-[ext_resource type="Script" path="res://bullet.gd" id="1_1v1ie"]
-
-[node name="Node3D" type="Node3D"]
-script = ExtResource("1_1v1ie")
-
-[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
-radius = 1.0
