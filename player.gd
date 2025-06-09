@@ -76,12 +76,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func spawn_bullet(gunpoint: Node3D):
 	var bullet = BULLET.instantiate()
 	gunpoint.add_child(bullet)
-	bullet.attach_player(self)
 	bullet.fire()
-	bullet.create_line()
-	bullet.create_rope_cast()
-	bullet.draw_line_to(gunpoint)
-	
+	bullet.draw_chains()
 	#print_tree_pretty()
 	
 		
