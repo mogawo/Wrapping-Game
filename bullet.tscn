@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbcy1er7etltf"]
+[gd_scene load_steps=7 format=3 uid="uid://bbcy1er7etltf"]
 
 [ext_resource type="Script" path="res://bullet.gd" id="1_1v1ie"]
 [ext_resource type="Script" path="res://chain_link.gd" id="2_q7e6c"]
 [ext_resource type="Script" path="res://spring.gd" id="3_wxv0f"]
+[ext_resource type="Script" path="res://wrap_cast.gd" id="4_gpo42"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tpula"]
 
@@ -20,12 +21,6 @@ max_contacts_reported = 1
 script = ExtResource("1_1v1ie")
 COLOR = Color(1, 0, 0, 1)
 
-[node name="RopeCast" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
-
-[node name="RopeMesh" type="Node3D" parent="."]
-top_level = true
-
 [node name="BulletHitBox" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_tpula")
@@ -34,17 +29,23 @@ shape = SubResource("CapsuleShape3D_tpula")
 mesh = SubResource("CapsuleMesh_8p0u3")
 skeleton = NodePath("../..")
 
-[node name="ForwardCast" type="RayCast3D" parent="."]
-top_level = true
-enabled = false
-target_position = Vector3(0, 0, -1)
-collision_mask = 6
-
 [node name="ChainLink" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 script = ExtResource("2_q7e6c")
 
 [node name="Spring" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 script = ExtResource("3_wxv0f")
+
+[node name="WrapCast" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+script = ExtResource("4_gpo42")
+
+[node name="BackCast" type="RayCast3D" parent="WrapCast"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+top_level = true
+collision_mask = 6
+debug_shape_custom_color = Color(0.0901961, 0, 0.847059, 1)
+debug_shape_thickness = 5
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

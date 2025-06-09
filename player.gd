@@ -77,7 +77,7 @@ func spawn_bullet(gunpoint: Node3D):
 	var bullet = BULLET.instantiate()
 	gunpoint.add_child(bullet)
 	bullet.fire()
-	bullet.draw_chains()
+	bullet.draw_chains(true)
 	#print_tree_pretty()
 	
 		
