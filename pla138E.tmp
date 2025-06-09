@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://ifa2dpaf3l68"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_or16w"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xgjlf"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wbmeh"]
+
+[node name="Player" type="CharacterBody3D"]
+collision_mask = 5
+script = ExtResource("1_or16w")
+GROUND_SPEED = null
+AIR_SPEED = null
+JUMP_VELOCITY = null
+MOUSE_SENSITIITY = null
+TILT_LIMIT = null
+BULLET = null
+MASS = null
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+
+[node name="GunLeft" type="CSGBox3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.221052, -0.793)
+size = Vector3(0.1, 0.282471, 0.698438)
+
+[node name="Gunpoint" type="Node3D" parent="CameraPivot/GunLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
+
+[node name="GunRight" type="CSGBox3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.221052, -0.793)
+size = Vector3(0.1, 0.282471, 0.698438)
+
+[node name="Gunpoint" type="Node3D" parent="CameraPivot/GunRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot"]
+spring_length = 0.0
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_xgjlf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_wbmeh")

@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjqxdduo42x8c"]
+
+[ext_resource type="PackedScene" uid="uid://ifa2dpaf3l68" path="res://player.tscn" id="1_y3x2i"]
+
+[node name="Map" type="Node3D"]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 28.8675, 0)
+omni_range = 4096.0
+omni_attenuation = -0.25
+
+[node name="Player" parent="." instance=ExtResource("1_y3x2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.58461, 0)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+use_collision = true
+collision_layer = 4
+collision_mask = 3
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8778, 3.13672, 22.9077)
+radius = 11.228
+height = 57.609
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.1222, 3.13672, 22.9077)
+radius = 11.228
+height = 57.609
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8778, 3.13672, -18.0923)
+radius = 11.228
+height = 57.609
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1222, 3.13672, -18.0923)
+radius = 11.228
+height = 57.609
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.8778, 48.1367, 5.9077)
+radius = 11.228
+height = 57.609
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.71191, 0, 0)
+size = Vector3(100, 1, 100)
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.71191, 2, 0)
+height = 14.0
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.28809, 4, 0)
+size = Vector3(1, 5, 1)

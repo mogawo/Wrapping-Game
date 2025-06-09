@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://lmf6phkor8kf"]
+
+[ext_resource type="PackedScene" uid="uid://bge3e0027udng" path="res://floor_tile_(small).tscn" id="1_hant1"]
+
+[node name="Floor Tile (Medium)" type="Node3D"]
+
+[node name="Floor Tile (Small)" parent="." instance=ExtResource("1_hant1")]
+
+[node name="Floor Tile (Small)2" parent="." instance=ExtResource("1_hant1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="Floor Tile (Small)3" parent="." instance=ExtResource("1_hant1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -6)
+
+[node name="Floor Tile (Small)4" parent="." instance=ExtResource("1_hant1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+
+[node name="Floor Tile (Small)5" parent="." instance=ExtResource("1_hant1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 6)
+
+[node name="Floor Tile (Small)6" parent="." instance=ExtResource("1_hant1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="Floor Tile (Small)7" parent="." instance=ExtResource("1_hant1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 6)
+
+[node name="Floor Tile (Small)8" parent="." instance=ExtResource("1_hant1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="Floor Tile (Small)9" parent="." instance=ExtResource("1_hant1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -6)
