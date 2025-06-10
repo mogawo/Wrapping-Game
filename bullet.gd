@@ -43,7 +43,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if draw:
 		wrap_cast.update_last_cast(tail.global_position)
-		wrap_mesh.update_last_wrap(wrap_cast.from, tail.global_position)
+		#wrap_mesh.update_last_wrap(wrap_cast.from, tail.global_position)
 		
 
 func draw_wraps(enable = false):

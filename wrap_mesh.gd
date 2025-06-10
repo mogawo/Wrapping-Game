@@ -24,8 +24,6 @@ func update_last_wrap(from_here: Vector3, to: Vector3):
 	if from != from_here:
 		to = from_here
 		flag = true
-		
-		
 	
 	var wrap = wrap_meshes.back()
 	var material = ORMMaterial3D.new()
