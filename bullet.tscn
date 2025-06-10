@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bbcy1er7etltf"]
 
 [ext_resource type="Script" path="res://bullet.gd" id="1_1v1ie"]
-[ext_resource type="Script" path="res://chain_link.gd" id="2_q7e6c"]
+[ext_resource type="Script" path="res://wrap_mesh.gd" id="2_q7e6c"]
 [ext_resource type="Script" path="res://spring.gd" id="3_wxv0f"]
 [ext_resource type="Script" path="res://wrap_cast.gd" id="4_gpo42"]
 
@@ -29,13 +29,13 @@ shape = SubResource("CapsuleShape3D_tpula")
 mesh = SubResource("CapsuleMesh_8p0u3")
 skeleton = NodePath("../..")
 
-[node name="ChainLink" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
-script = ExtResource("2_q7e6c")
-
 [node name="Spring" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 script = ExtResource("3_wxv0f")
+
+[node name="WrapMesh" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+script = ExtResource("2_q7e6c")
 
 [node name="WrapCast" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)

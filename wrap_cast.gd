@@ -15,10 +15,12 @@ func _physics_process(delta: float) -> void:
 	pass
 
 
-func add_ray_cast():
+func add_wrap_cast():
 	var forward_cast = RayCast3D.new()
 	cast_array.append(forward_cast)
 	forward_cast.top_level = true
+	forward_cast.hit_from_inside = false
+	forward_cast.hit_back_faces = false
 	forward_cast.debug_shape_custom_color = Color.ORANGE
 	forward_cast.debug_shape_thickness = 5
 	forward_cast.set_collision_mask_value(1, false)
@@ -27,7 +29,6 @@ func add_ray_cast():
 	add_child(forward_cast)
 	
 	if from.length() == 0:
-		print("set")
 		from = global_position
 	
 func update_last_cast(to: Vector3):
@@ -43,15 +44,15 @@ func update_last_cast(to: Vector3):
 	if last_cast.is_colliding() and back_cast.is_colliding():
 		var contact_front = last_cast.get_collision_point()
 		var contact_back = back_cast.get_collision_point()
+		
 		var mid_point = (contact_front + contact_back) / 2
 		
 		var normal_front = last_cast.get_collision_normal()
 		var normal_back = back_cast.get_collision_normal()
 		
 		var mid_normal = (normal_back + normal_front) * padding
-		
 		from = mid_point + mid_normal
-		add_ray_cast()
+		add_wrap_cast()
 		#add_line_cast()
 		
 		draw_waypoint(contact_front, Color.RED)

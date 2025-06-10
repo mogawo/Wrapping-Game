@@ -66,7 +66,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_released("reel_in_right"):
 		if $CameraPivot/GunRight/Gunpoint.get_node_or_null("Bullet"):
 			$CameraPivot/GunRight/Gunpoint/Bullet.reel_stop()
-
+		
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		$CameraPivot.rotation.x -= event.relative.y * MOUSE_SENSITIITY
@@ -77,7 +77,6 @@ func spawn_bullet(gunpoint: Node3D):
 	var bullet = BULLET.instantiate()
 	gunpoint.add_child(bullet)
 	bullet.fire()
-	bullet.draw_chains(true)
-	#print_tree_pretty()
+	bullet.draw_wraps(true)
 	
 		
