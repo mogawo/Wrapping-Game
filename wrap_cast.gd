@@ -32,10 +32,10 @@ func add_wrap_cast():
 		from = global_position
 	
 func update_last_cast(to: Vector3):
+	var last_cast = cast_array.back() as RayCast3D
 	if cast_array.size() == 1:
 		from = global_position
-	var last_cast = cast_array.back() as RayCast3D
-	
+		
 	last_cast.global_position = from
 	last_cast.target_position = to - from
 	
@@ -43,6 +43,7 @@ func update_last_cast(to: Vector3):
 	back_cast.target_position = from - to
 	check_unwrap(to)
 	if last_cast.is_colliding() and back_cast.is_colliding():
+
 		var contact_front = last_cast.get_collision_point()
 		var contact_back = back_cast.get_collision_point()
 		
@@ -53,28 +54,30 @@ func update_last_cast(to: Vector3):
 		
 		var mid_normal = (normal_back + normal_front) * padding
 		from = mid_point + mid_normal
-		
-		
 		add_wrap_cast()
-		#draw_waypoint(contact_front, Color.RED)
-		#draw_waypoint(contact_back, Color.GREEN$
 	
 var unwrap_point: Vector3
 func check_unwrap(to: Vector3):
 	var array_size = cast_array.size() 
 	if array_size < 2:
-		return false
+		return
 	var before_last_cast = cast_array[array_size - 2]
-	var last_target_pos = before_last_cast.target_position
 	before_last_cast.target_position = to - before_last_cast.global_position
-	if not before_last_cast.is_colliding() and unwrap_point.distance_squared_to(from) < 1:
-		cast_array.pop_back().queue_free()
-		draw_waypoint(from, Color.RED)
-		from = before_last_cast.global_position
-		draw_waypoint(from, Color.BLUE)
+
+	if array_size == 2:
+		var reverse_forward_cast_direction = cast_array[1].global_position.direction_to(cast_array[0].global_position).normalized()
+		cast_array[0].global_position = cast_array[1].global_position + reverse_forward_cast_direction
+		draw_waypoint(cast_array[1].global_position, Color.AQUAMARINE)
+	
+	
+	if not before_last_cast.is_colliding():
+		if unwrap_point.distance_to(from) > 1 and array_size == 2:
+			pass
+		else:
+			cast_array.pop_back().queue_free()
+			from = before_last_cast.global_position
 	else:
 		unwrap_point = before_last_cast.get_collision_point()
-		#before_last_cast.target_position = last_target_pos
 		
 		
 		

@@ -46,6 +46,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 top_level = true
 visible = false
 collision_mask = 6
+hit_back_faces = false
 debug_shape_custom_color = Color(0.0901961, 0, 0.847059, 1)
 debug_shape_thickness = 5
 
