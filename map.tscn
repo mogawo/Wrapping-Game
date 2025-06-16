@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjqxdduo42x8c"]
+[gd_scene load_steps=3 format=3 uid="uid://cjqxdduo42x8c"]
 
 [ext_resource type="PackedScene" uid="uid://ifa2dpaf3l68" path="res://player.tscn" id="1_y3x2i"]
+[ext_resource type="PackedScene" uid="uid://ctpsfnvb4m5y6" path="res://chain.tscn" id="2_wg4a7"]
 
 [node name="Map" type="Node3D"]
 
@@ -58,3 +59,7 @@ size = Vector3(1, 5, 1)
 [node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.71191, 4, 7.999)
 size = Vector3(13, 5, 3)
+
+[node name="Chain" parent="." instance=ExtResource("2_wg4a7")]
+transform = Transform3D(1, 0, 0, 0, 0.0153409, 0.999882, 0, -0.999882, 0.0153409, 3.2645, 7.83074, 13.1831)
+length = 6

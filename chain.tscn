@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctpsfnvb4m5y6"]
+
+[ext_resource type="Script" path="res://chain.gd" id="1_u4geq"]
+[ext_resource type="PackedScene" uid="uid://d7hqowjml0i6" path="res://link.tscn" id="2_t6rjh"]
+
+[node name="Chain" type="Node3D"]
+script = ExtResource("1_u4geq")
+link = ExtResource("2_t6rjh")

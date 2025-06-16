@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbcy1er7etltf"]
+[gd_scene load_steps=8 format=3 uid="uid://bbcy1er7etltf"]
 
 [ext_resource type="Script" path="res://bullet.gd" id="1_1v1ie"]
 [ext_resource type="Script" path="res://wrap_mesh.gd" id="2_q7e6c"]
@@ -8,6 +8,8 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tpula"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8p0u3"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_p131u"]
 
 [node name="Bullet" type="RigidBody3D"]
 disable_mode = 1
@@ -41,13 +43,11 @@ script = ExtResource("2_q7e6c")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 script = ExtResource("4_gpo42")
 
-[node name="BackCast" type="RayCast3D" parent="WrapCast"]
+[node name="BackCast" type="ShapeCast3D" parent="WrapCast"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 top_level = true
-visible = false
+shape = SubResource("SphereShape3D_p131u")
 collision_mask = 6
-hit_back_faces = false
 debug_shape_custom_color = Color(0.0901961, 0, 0.847059, 1)
-debug_shape_thickness = 5
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

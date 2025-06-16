@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d7hqowjml0i6"]
+
+[ext_resource type="Script" path="res://link.gd" id="1_ukyyf"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_l4w0d"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0lktg"]
+
+[node name="Link" type="RigidBody3D"]
+collision_layer = 6
+collision_mask = 6
+script = ExtResource("1_ukyyf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_l4w0d")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_0lktg")
+
+[node name="PinJoint3D" type="PinJoint3D" parent="."]
