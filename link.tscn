@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://link.gd" id="1_ukyyf"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_l4w0d"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_6b2ht"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0lktg"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_lc82b"]
 
 [node name="Link" type="RigidBody3D"]
 collision_layer = 6
@@ -12,10 +12,8 @@ collision_mask = 6
 script = ExtResource("1_ukyyf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_l4w0d")
+mesh = SubResource("CylinderMesh_6b2ht")
 skeleton = NodePath("../CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_0lktg")
-
-[node name="PinJoint3D" type="PinJoint3D" parent="."]
+shape = SubResource("CylinderShape3D_lc82b")
