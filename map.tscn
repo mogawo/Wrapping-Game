@@ -49,15 +49,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.71191, 0, 0)
 size = Vector3(100, 1, 100)
 
 [node name="CSGCylinder3D6" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.71191, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.27383, 2, 0)
 height = 14.0
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.28809, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6235, 4, 0)
 size = Vector3(1, 5, 1)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.71191, 4, 7.999)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.71191, 4, 14.6939)
 size = Vector3(13, 5, 3)
 
 [node name="Chain" parent="." instance=ExtResource("2_wg4a7")]

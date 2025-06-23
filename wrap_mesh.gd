@@ -42,7 +42,6 @@ func update_last_wrap(from_here: Vector3, to: Vector3):
 func set_color(new_color: Color):
 	for wrap in wrap_meshes:
 		wrap.get_active_material(0).albedo_color = new_color
-		print(wrap.get_active_material(0))
 		
 func draw_contact_point(pos: Vector3, color: Color):
 	var waypoint = MeshInstance3D.new()

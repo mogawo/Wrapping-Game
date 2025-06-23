@@ -37,12 +37,12 @@ func clear_links():
 	joint_array.clear()
 	
 func remove_link():
-	print("remove_link")
+	#print("remove_link")
 	if not link_array.is_empty(): link_array.pop_back().queue_free()
 	if not joint_array.is_empty(): joint_array.pop_back().queue_free()
 	
 func add_link():
-	print("add_link")
+	#print("add_link")
 	var new_link = link.instantiate()
 	var dir = link_array.front().transform.basis.y if not link_array.is_empty() else Vector3.UP
 	new_link.position = dir * link_array.size() * seperation

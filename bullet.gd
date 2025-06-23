@@ -44,7 +44,7 @@ func _physics_process(delta: float) -> void:
 	if draw:
 		wrap_cast.update_last_cast(tail.global_position)
 		wrap_mesh.update_last_wrap(wrap_cast.from, tail.global_position)
-		if wrap_cast.cast_array.size() != wrap_mesh.wrap_meshes.size():
+		if wrap_cast.cast_array.size() < wrap_mesh.wrap_meshes.size():
 			wrap_mesh.wrap_meshes.pop_back().queue_free()
 		
 
